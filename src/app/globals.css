@@ -1,0 +1,83 @@
+/* src/app/globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1) Tokens: definimos variables HSL para el tema (claro) */
+:root {
+  /* Fondo y texto */
+  --bg: 0 0% 100%;
+  --fg: 222 47% 11%;
+  /* Superficies */
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 40%;
+  /* Bordes y foco */
+  --border: 214 32% 91%;
+  --ring: 142 71% 45%;
+  /* Marca (verde) */
+  --brand: 142 76% 36%;
+  --brand-foreground: 0 0% 100%;
+  /* Estados */
+  --success: 142 70% 45%;
+  --warning: 38 92% 50%;
+  --danger: 0 84% 60%;
+}
+
+/* 2) Tema oscuro: sobrescribimos SOLO variables */
+.dark {
+  --bg: 222 47% 11%;
+  --fg: 210 40% 98%;
+
+  --card: 222 47% 13%;
+  --card-foreground: 210 40% 98%;
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+
+  --border: 217 33% 20%;
+  --ring: 142 71% 45%;
+
+  --brand: 142 70% 45%;
+  --brand-foreground: 0 0% 10%;
+}
+
+/* 3) Base: aplica tokens a body y bordes por defecto */
+@layer base {
+  html {
+    /* Tipografía del sistema por ahora. Luego podemos integrar `next/font`. */
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  body {
+    @apply bg-bg text-fg antialiased;
+  }
+  * {
+    @apply border-border;
+  }
+}
+
+/* 4) Componentes mínimos reutilizables (ligeros, sin librerías) */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-brand-foreground hover:opacity-90;
+  }
+  .btn-outline {
+    @apply btn border bg-transparent hover:bg-muted;
+  }
+  .card {
+    @apply rounded-xl border bg-card shadow-card;
+  }
+  .section {
+    @apply py-section;
+  }
+  .section-sm {
+    @apply py-section-sm;
+  }
+  .section-lg {
+    @apply py-section-lg;
+  }
+}
