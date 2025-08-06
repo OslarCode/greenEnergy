@@ -71,7 +71,7 @@ Luego abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
 ## 📄 Licencia
 
-MIT © [TuNombre](https://github.com/OslarCode)
+MIT © [Oslar](https://github.com/OslarCode)
 
 ---
 
